@@ -1,0 +1,119 @@
+[
+	{
+		"idarticulos" : 1,
+		"nombre" : "Acanaladora",
+		"funcion" : "Para hacer surcos o canaletas en muros",
+		"descripcion" : "Máquina eléctrica de 220Volts 50Hz\nPotencia: 1400 Vatios (Watts)",
+		"imagen" : "https://www.herramientaseinhell.com.ar/wp-content/uploads/image-21.jpg",
+		"costo" : 7500.00,
+		"categorias_idcategorias" : 3
+	},
+	{
+		"idarticulos" : 2,
+		"nombre" : "Amoladora",
+		"funcion" : "herramienta eléctrica diseñada para realizar tareas de corte en materiales como metal o concreto",
+		"descripcion" : "Peso: 6,28 - 8,55 kg\nTamaño 503x250x140 mm",
+		"imagen" : "https://lobrunosa.com.ar/2500-thickbox_default/amoladora-angular-115mm-g720n-ar-820w.jpg",
+		"costo" : 6500.00,
+		"categorias_idcategorias" : 3
+	},
+	{
+		"idarticulos" : 3,
+		"nombre" : "Atornilladora",
+		"funcion" : "Herramienta eléctrica portátil diseñada para facilitar el proceso de atornillado y desatornillado",
+		"descripcion" : "Función de taladro\nControl de velocidad variable\nAjuste de torque",
+		"imagen" : "https://http2.mlstatic.com/D_NQ_NP_995784-MLA40777938488_022020-O.webp",
+		"costo" : 5500.00,
+		"categorias_idcategorias" : 3
+	},
+	{
+		"idarticulos" : 4,
+		"nombre" : "Carretilla",
+		"funcion" : "Herramienta de manipulación de carga diseñada para transportar objetos pesados de un lugar a otro",
+		"descripcion" : "Distintos modelos y capacidades de carga",
+		"imagen" : "https://arcencohogar.vtexassets.com/arquivos/ids/269801-800-800?v=637651551889900000&width=800&height=800&aspect=true",
+		"costo" : 4500.00,
+		"categorias_idcategorias" : 1
+	},
+	{
+		"idarticulos" : 5,
+		"nombre" : "Engrampadora",
+		"funcion" : "Herramienta manual diseñada para unir materiales mediante el uso de grampas",
+		"descripcion" : "Engrapadora 3 en 1: permite 2 tipos diferentes de grapas (curvas - rectas) y 1 de clavos",
+		"imagen" : "https://arcencohogar.vtexassets.com/arquivos/ids/271348-800-800?v=637651561860570000&width=800&height=800&aspect=true",
+		"costo" : 3500.00,
+		"categorias_idcategorias" : 1
+	},
+	{
+		"idarticulos" : 6,
+		"nombre" : "Escalera",
+		"funcion" : "Facilita el desplazamiento vertical de una persona de manera segura y eficiente",
+		"descripcion" : "Distintos modelos y materiales",
+		"imagen" : "https://www.gardenlife.com.ar/public/images/productos/producto_430_8901.jpg",
+		"costo" : 3500.00,
+		"categorias_idcategorias" : 1
+	},
+	{
+		"idarticulos" : 7,
+		"nombre" : "Martillo",
+		"funcion" : "Herramienta eficaz para dar golpes controlados, esencial para trabajos de construcción",
+		"descripcion" : "Distintos tamaños y materiales",
+		"imagen" : "https://pintecord.com.ar/web/image/product.template/21942/image_1024?unique=552cb4a",
+		"costo" : 2500.00,
+		"categorias_idcategorias" : 1
+	},
+	{
+		"idarticulos" : 8,
+		"nombre" : "Andamio grande",
+		"funcion" : "Herramienta utilizada para acceder a áreas elevadas, realizar tareas de construcción",
+		"descripcion" : "Sistema de ensamblaje seguro, Moviles, Material resistente",
+		"imagen" : "https://http2.mlstatic.com/D_NQ_NP_911891-MLA53180466798_012023-O.webp",
+		"costo" : 5500.00,
+		"categorias_idcategorias" : 2
+	},
+	{
+		"idarticulos" : 9,
+		"nombre" : "Baranda de seguridad",
+		"funcion" : "Herramienta para prevenir caídas y brindar un soporte adicional a los trabajadores",
+		"descripcion" : "Material resistente, Altura regulable",
+		"imagen" : "https://www.cmeargentina.com/images/meta/meta-800x420-productos-barandas.jpg",
+		"costo" : 4500.00,
+		"categorias_idcategorias" : 2
+	},
+	{
+		"idarticulos" : 10,
+		"nombre" : "Tablón metálico",
+		"funcion" : "Proporciona una base segura para los trabajadores que realizan tareas en alturas",
+		"descripcion" : "Material resistente, Superficie antideslizante",
+		"imagen" : "https://dcdn.mitiendanube.com/stores/858/640/products/tablon-para-andamio-25-mts1-d7aa3c74cc272a96ec15900665609468-1024-1024.png",
+		"costo" : 3500.00,
+		"categorias_idcategorias" : 2
+	},
+	{
+		"idarticulos" : 11,
+		"nombre" : "Arnés integral",
+		"funcion" : "Proporcionar sujeción y seguridad al usuario, evitando caídas y reduciendo el riesgo de lesiones",
+		"descripcion" : "Línea de vida elástica, Gancho o mosquetón de seguridad",
+		"imagen" : "https://www.nakaoutdoors.com.ar/img/articulos/navaho_bod_croll_fast_imagen1.jpg",
+		"costo" : 3500.00,
+		"categorias_idcategorias" : 4
+	},
+	{
+		"idarticulos" : 12,
+		"nombre" : "Reflector",
+		"funcion" : " Diseñado para proporcionar luz en entornos sin acceso a una fuente de energía eléctrica",
+		"descripcion" : "Voltaje de la batería: 14,4-18 V, Flujo luminoso: 1.900 lm, Peso sin batería: 1,6 kg",
+		"imagen" : "https://http2.mlstatic.com/D_NQ_NP_871402-MLA31080327105_062019-O.webp",
+		"costo" : 3500.00,
+		"categorias_idcategorias" : 4
+	},
+	{
+		"idarticulos" : 13,
+		"nombre" : "Trailer",
+		"funcion" : "Plataforma diseñada para transportar cargas de hasta 1 tonelada de peso",
+		"descripcion" : "Estructura resistente, Plataforma de carga amplia, Ruedas de alta resistencia",
+		"imagen" : "https://fvstorageprodes.blob.core.windows.net/img/081705/sans1_nm.jpg",
+		"costo" : 6500.00,
+		"categorias_idcategorias" : 4
+	}
+]
