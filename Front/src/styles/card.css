@@ -1,0 +1,86 @@
+
+.tarjeta {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 350px;
+    height: 250px;
+    
+  }
+  
+  .tarjeta-imagen {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .tarjeta-contenido {
+    flex: 1;
+  }
+  
+  .tarjeta-titulo {
+    margin: 0;
+  }
+  
+  .tarjeta-descripcion {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  
+  .tarjeta-precio {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .boton-agregar {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .boton-agregar:hover {
+    background-color: #45a049;
+  }
+
+  .boton-vermas {
+    background-color: #c2e4eb;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  .boton-vermas:hover {
+    background-color: #a1deeb;
+  }
+  
+  .boton-quitar {
+    background-color: #af4c4c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .boton-quitar:hover {
+    background-color: #a04545;
+  }
+  
+  
+  .carrito {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
