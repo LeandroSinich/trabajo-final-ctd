@@ -11,6 +11,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
+import { BusquedaContext } from '../context/BusquedaContext';
+import { useContext } from 'react';
+
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -59,17 +62,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
 
-    const {storedValue, setValue} = useLocalStorage('busqueda', '')
+    const { setValue } = useLocalStorage('busqueda', '')
     const navigate = useNavigate()
+    const { agregarBusqueda } = useContext(BusquedaContext)
 
-    const handleSubmit = (e)=>{
-        console.log(e.key)
-        if(e.key === 'Enter'){
-            navigate('/busqueda')
-        }else{
+    const handleSubmit = (e) => {
+
+        if (e.key === 'Enter') {
+            console.log(e.target.value)
             setValue(e.target.value)
+            agregarBusqueda(e.target.value)
+            navigate('/busqueda/' + e.target.value)
+            
+        } else {
+            return
         }
     }
+
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -112,13 +122,15 @@ export default function SearchAppBar() {
 
                     </Box>
                     <Search onKeyDown={handleSubmit}>
+
                         <SearchIconWrapper>
+
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search…"
                             inputProps={{ 'aria-label': 'search' }}
-                            
+
                         />
                     </Search>
                 </Toolbar>

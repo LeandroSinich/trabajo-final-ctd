@@ -10,8 +10,9 @@ import { OtrosPage } from './pages/OtrosPage'
 import { ArticulosProvider } from './context/ArticulosProvider'
 import { Detalle } from './pages/Detalle'
 import { CarritoProvider } from './context/CarritoProvider'
-import  AppBar  from './componentes/AppBar'
+import AppBar from './componentes/AppBar'
 import { Busqueda } from './pages/Busqueda'
+import { BusquedaProvider } from './context/BusquedaProvider'
 
 
 
@@ -23,20 +24,22 @@ function App() {
     <>
       <ArticulosProvider>
         <CarritoProvider>
-          <AppBar></AppBar>
-          {/* <Navbar></Navbar> */}
-          <Routes>
-            <Route path='/' element={<HomePage />}></Route>
-            <Route path='/maquinas' element={<MaquinasPage />}></Route>
-            <Route path='/herramientas' element={<HerramientasPage />}></Route>
-            <Route path='/andamios' element={<AndamiosPage />}></Route>
-            <Route path='/otros' element={<OtrosPage />}></Route>
-            <Route path='/carrito' element={<CarritoPage />}></Route>
-            <Route path='/detalle/:id' element={<Detalle />}></Route>
-            <Route path='busqueda' element={<Busqueda />}></Route>
+          <BusquedaProvider>
+            <AppBar></AppBar>
+            {/* <Navbar></Navbar> */}
+            <Routes>
+              <Route path='/' element={<HomePage />}></Route>
+              <Route path='/maquinas' element={<MaquinasPage />}></Route>
+              <Route path='/herramientas' element={<HerramientasPage />}></Route>
+              <Route path='/andamios' element={<AndamiosPage />}></Route>
+              <Route path='/otros' element={<OtrosPage />}></Route>
+              <Route path='/carrito' element={<CarritoPage />}></Route>
+              <Route path='/detalle/:id' element={<Detalle />}></Route>
+              <Route path='/busqueda/*' element={<Busqueda />}></Route>
 
-            <Route path='/*' element={<Navigate to='/' />}></Route>
-          </Routes>
+              <Route path='/*' element={<Navigate to='/' />}></Route>
+            </Routes>
+          </BusquedaProvider>
         </CarritoProvider>
       </ArticulosProvider>
     </>
