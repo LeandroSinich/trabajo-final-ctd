@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping(path = "/usuarios")
 public class UsuarioController {
 
@@ -42,4 +43,5 @@ public class UsuarioController {
     public void borrarUsuario(@PathVariable("id") Long id){
         iUsuarioService.eliminar(id);
     }
+
 }

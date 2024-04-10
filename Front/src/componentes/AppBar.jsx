@@ -13,6 +13,11 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { BusquedaContext } from '../context/BusquedaContext';
 import { useContext } from 'react';
+import { ShoppingCart } from '@mui/icons-material';
+import { CarritoContext } from '../context/CarritoContext';
+import { Badge, Button } from '@mui/material';
+import { LoginContext } from '../context/LoginContext';
+import { useEffect } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -65,20 +70,35 @@ export default function SearchAppBar() {
     const { setValue } = useLocalStorage('busqueda', '')
     const navigate = useNavigate()
     const { agregarBusqueda } = useContext(BusquedaContext)
+    const { carritoLista } = useContext(CarritoContext)
+    const { login, reset } = useContext(LoginContext)
+    
 
     const handleSubmit = (e) => {
 
         if (e.key === 'Enter') {
-            console.log(e.target.value)
             setValue(e.target.value)
             agregarBusqueda(e.target.value)
             navigate('/busqueda/' + e.target.value)
-            
+
         } else {
             return
         }
     }
 
+    const handleCuenta = () => {
+
+        navigate('/cuenta')
+
+    }
+    const handleSesion = () => {
+        reset()
+        navigate('/blanco')
+    }
+    useEffect(() => {
+      
+    }, [login])
+    
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -121,18 +141,35 @@ export default function SearchAppBar() {
                         </NavLink>
 
                     </Box>
-                    <Search onKeyDown={handleSubmit}>
+                    <Search onKeyDown={handleSubmit} >
 
-                        <SearchIconWrapper>
+                        <SearchIconWrapper >
 
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search…"
                             inputProps={{ 'aria-label': 'search' }}
-
                         />
                     </Search>
+
+                    <NavLink to='/carrito'>
+                        <div style={{ margin: '20px' }}>
+                            <Badge badgeContent={carritoLista.length} color="secondary" >
+                                <ShoppingCart color="action" />
+                            </Badge>
+                        </div>
+                    </NavLink>
+                    {login.login ?
+                        <Button color='neutral' variant="plain" onClick={handleCuenta}>
+                            Tu cuenta
+                        </Button>
+                        :
+                        <Button color='neutral' variant="plain" onClick={handleSesion}>
+                            Iniciar Sesión
+                        </Button>
+
+                    }
                 </Toolbar>
             </AppBar>
         </Box >
