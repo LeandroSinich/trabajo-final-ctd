@@ -48,6 +48,7 @@ export default function InicioSesion() {
     useEffect(() => {
         getUsers()
     }, [])
+    
     useEffect(() => {
         if(login.login == false && login.nombre !== 'OFF-LINE'){
             setOpen(true)            

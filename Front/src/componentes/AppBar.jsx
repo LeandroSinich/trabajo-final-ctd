@@ -3,14 +3,11 @@ import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-
 import { BusquedaContext } from '../context/BusquedaContext';
 import { useContext } from 'react';
 import { ShoppingCart } from '@mui/icons-material';
@@ -18,6 +15,8 @@ import { CarritoContext } from '../context/CarritoContext';
 import { Badge, Button } from '@mui/material';
 import { LoginContext } from '../context/LoginContext';
 import { useEffect } from 'react';
+import DrawerComp from './Drawer';
+import '../styles/AppBar.css'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -104,16 +103,10 @@ export default function SearchAppBar() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        sx={{ mr: 2 }}
-                    >
-                        {/* <MenuIcon /> */}
-                    </IconButton>
-
+                    <div className='hambur'>
+                    <DrawerComp/>
+                    </div>
+                    
                     <Typography
                         variant="h5"
                         noWrap
@@ -123,10 +116,10 @@ export default function SearchAppBar() {
                         <NavLink className="navbar-brand" to='/'>
                             <b>Qtools</b>
                         </NavLink>
-
+                        <img src="/q.png" alt="logo" style={{width: '50px', marginLeft:'10px', borderRadius:'5px'}}/>
                     </Typography>
 
-                    <Box display='flex'>
+                    <Box display='flex' className='box'>
                         <NavLink className="nav-link" to="/maquinas">
                             <Typography variant="h7" m='10px'>Maquinas</Typography>
                         </NavLink>
@@ -141,7 +134,7 @@ export default function SearchAppBar() {
                         </NavLink>
 
                     </Box>
-                    <Search onKeyDown={handleSubmit} >
+                    <Search onKeyDown={handleSubmit} className='search' >
 
                         <SearchIconWrapper >
 

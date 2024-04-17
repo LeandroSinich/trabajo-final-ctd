@@ -13,11 +13,12 @@ import ArtTrackIcon from '@mui/icons-material/ArtTrack';
 import { LoginContext } from '../context/LoginContext';
 import { Button } from '@mui/material';
 import InicioSesion from '../componentes/InicioSesion';
-
+import { NavLink } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function CuentaPage() {
 
-    const { login } = React.useContext(LoginContext)
+    const { login, reset } = React.useContext(LoginContext)
 
     return (
         <div >
@@ -53,6 +54,13 @@ export default function CuentaPage() {
                             </ListItemDecorator>
                             Tus alquileres
                         </ListItemButton>
+                        
+                        <ListItemButton onClick={()=> reset()}>
+                            <ListItemDecorator>
+                                <LogoutIcon />
+                            </ListItemDecorator>
+                            Cerrar Sesión
+                        </ListItemButton>
                     </List>
                 </div>
             }
@@ -65,12 +73,14 @@ export default function CuentaPage() {
                             maxWidth: 320,
                         }}
                     >
+                        <NavLink to='/registro-producto'>
                         <ListItemButton>
                             <ListItemDecorator>
                                 <AddCardIcon />
                             </ListItemDecorator>
                             Agregar nuevo producto
                         </ListItemButton>
+                        </NavLink>
                         <ListItemButton>
                             <ListItemDecorator>
                                 <DeleteIcon />

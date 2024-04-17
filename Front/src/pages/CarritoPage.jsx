@@ -1,16 +1,29 @@
 import React, { useContext, useEffect } from 'react'
 import { CarritoContext } from '../context/CarritoContext'
+import { LoginContext } from '../context/LoginContext'
+import { useNavigate } from 'react-router-dom'
+import DatePicker from '../componentes/DatePicker'
+import { Margin } from '@mui/icons-material'
+
 
 export const CarritoPage = () => {
 
   const { carritoLista, aumentarCantidad, disminuirCantidad, eliminarArticulo } = useContext(CarritoContext)
-
+  const {login} = useContext(LoginContext)
+  
+  const navigate = useNavigate()
   const calcularTotal = () => {
     return carritoLista.reduce((total, item) => total + item.costo * item.cantidad, 0)
   }
 
 const handleAlquilar = ()=>{
-  alert('Tu pedido ha sido realizado')
+  if(login.login){
+    alert(login.nombre +', tu pedido ha sido realizado')
+  }else {
+    alert('Debes iniciar sesión para terminar de realizar tu alquiler')
+    navigate('/')
+  }
+  
 }
 
   return (
@@ -62,6 +75,9 @@ const handleAlquilar = ()=>{
           </tr>
         </tbody>
       </table>
+      <hr></hr>
+      <DatePicker></DatePicker>
+      
       <button 
       className='btn btn-primary'
       type='button'

@@ -8,7 +8,7 @@ export const MaquinasPage = () => {
   const [maquinas, setMaquinas] = useState([])
 
   useEffect(() => {
-    setMaquinas(artState.filter(art => art.categorias_idcategorias === 3))
+    setMaquinas(artState.filter(art => art.categoria.id === 3))
   }, [])
 
 

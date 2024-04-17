@@ -2,6 +2,8 @@ package LeoCTD.Quetools.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "roles")
 public class Rol {
@@ -10,6 +12,8 @@ public class Rol {
     private Long id;
     @Column(nullable = false, unique = true)
     private String tipo;
+
+
 
     public Rol(Long id, String tipo) {
         this.id = id;

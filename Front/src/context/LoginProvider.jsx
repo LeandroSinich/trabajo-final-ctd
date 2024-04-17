@@ -6,7 +6,7 @@ const initialState = { nombre: '', login: false, tipo: 0 }
 const loginReducer = (state = initialState, action = {}) => {
     switch (action.type) {
         case '[LOGIN]-iniciar sesion':
-            return { nombre: action.payload.nombre, login: true, tipo: action.payload.roles_idroles }
+            return { nombre: action.payload.nombre, login: true, tipo: action.payload.rol.id }
         case '[LOGIN]-iniciar sesion offline':
             return { nombre: 'OFF-LINE', login: false, tipo: 0 }
         case '[LOGIN]-reset':

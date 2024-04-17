@@ -19,16 +19,18 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
     private Date fecha_creacion;
-    private Long roles_idroles;
+    @ManyToOne
+    @JoinColumn(name="rol_id")
+    private Rol rol;
 
-    public Usuario(Long id, String nombre, String apellido, String email, String password, Date fecha_creacion, Long roles_idroles) {
+    public Usuario(Long id, String nombre, String apellido, String email, String password, Date fecha_creacion, Rol rol) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.password = password;
         this.fecha_creacion = fecha_creacion;
-        this.roles_idroles = roles_idroles;
+        this.rol = rol;
     }
 
     public Usuario() {
@@ -48,6 +50,10 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public boolean validarNombre(String nombre){
+        return nombre.length() > 1;
     }
 
     public String getApellido() {
@@ -82,12 +88,12 @@ public class Usuario {
         this.fecha_creacion = fecha_creacion;
     }
 
-    public Long getRoles_idroles() {
-        return roles_idroles;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setRoles_idroles(Long roles_idroles) {
-        this.roles_idroles = roles_idroles;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
 
     @Override
@@ -99,7 +105,7 @@ public class Usuario {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", fecha_creacion=" + fecha_creacion +
-                ", roles_idroles=" + roles_idroles +
+                ", rol=" + rol +
                 '}';
     }
 }

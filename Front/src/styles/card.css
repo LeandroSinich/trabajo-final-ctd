@@ -9,7 +9,9 @@
     margin-top: 10px;
     margin-right: 10px;
     width: 350px;
-    height: 250px;
+    height: 200px;
+    background-color: rgb(247, 243, 231);
+    color: rgb(24, 24, 24);
     
   }
   
@@ -26,12 +28,22 @@
   }
   
   .tarjeta-titulo {
+    box-sizing: border-box;
+    font-size: 130%;
     margin: 0;
+    margin-bottom: 20px;
   }
   
   .tarjeta-descripcion {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
     margin: 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    
+    height: 20%;
   }
   
   .tarjeta-precio {
@@ -83,4 +95,5 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
   

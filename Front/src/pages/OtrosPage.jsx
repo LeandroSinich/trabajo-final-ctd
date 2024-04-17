@@ -8,7 +8,7 @@ export const OtrosPage = () => {
   const [otros, setOtros] = useState([])
 
   useEffect(() => {
-    setOtros(artState.filter(art => art.categorias_idcategorias === 4))
+    setOtros(artState.filter(art => art.categoria.id === 4))
   }, [])
 
 

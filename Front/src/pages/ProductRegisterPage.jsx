@@ -12,7 +12,7 @@ export const ProductRegisterPage = () => {
         descripcion: "",
         imagen: "",
         costo: 0,
-        categorias_idcategorias: 0
+        categoria: {}
     })
     const [exito, setExito] = useState(false)
     const navigate = useNavigate()
@@ -39,17 +39,29 @@ export const ProductRegisterPage = () => {
         switch (e.target.innerText) {
             case 'Herramienta':
 
-                return setProducto({ ...producto, categorias_idcategorias: 1 })
+                return setProducto({ ...producto, categoria: {
+                    "id": 1,
+                    "nombre": "HERRAMIENTAS"
+                } })
 
             case 'Andamio':
 
-                return setProducto({ ...producto, categorias_idcategorias: 2 })
+                return setProducto({ ...producto, categoria: {
+                    "id": 2,
+                    "nombre": "ANDAMIOS"
+                } })
             case 'Máquina':
 
-                return setProducto({ ...producto, categorias_idcategorias: 3 })
+                return setProducto({ ...producto, categoria: {
+                    "id": 3,
+                    "nombre": "MAQUINAS"
+                } })
             case 'Otra':
 
-                return setProducto({ ...producto, categorias_idcategorias: 4 })
+                return setProducto({ ...producto, categoria: {
+                    "id": 4,
+                    "nombre": "OTROS"
+                } })
             default:
                 return
         }
@@ -78,13 +90,12 @@ export const ProductRegisterPage = () => {
     }
     return (
         <>
-            <h2 align='center' style={{
-
-                marginTop: '2%'
-            }}>Registro de Producto</h2>
+            <h2 align='center' 
+            style={{marginTop: '2%'
+            }}
+            >Registro de Producto</h2>
             <div
                 align='center'
-
             >
                 <Box
                     sx={{
@@ -93,8 +104,7 @@ export const ProductRegisterPage = () => {
 
                         borderRadius: 'md',
                         p: 2,
-                        boxShadow: 'lg',
-
+                        boxShadow: 'lg'
                     }}
                 >
                     <FormControl >

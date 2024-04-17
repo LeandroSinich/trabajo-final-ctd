@@ -12,7 +12,7 @@ export const Card = ( {articulo} ) => {
 
             <img src={articulo.imagen} alt={articulo.nombre} className="tarjeta-imagen" />
             <div className='tajeta-contenido'>
-                <h3 className='tarjeta-titulo'>{articulo.nombre}</h3>
+                <h4 className='tarjeta-titulo'>{articulo.nombre}</h4>
                 <p className='tarjeta-descripcion'>{articulo.funcion}</p>
                 <p className='tarjeta-precio'>$<b>{articulo.costo}</b>/dia</p>
                 <div> 

@@ -8,7 +8,7 @@ export const HerramientasPage = () => {
   const [herramientas, setHerramientas] = useState([])
 
   useEffect(() => {
-    setHerramientas(artState.filter(art => art.categorias_idcategorias === 1))
+    setHerramientas(artState.filter(art => art.categoria.id === 1))
   }, [])
 
 

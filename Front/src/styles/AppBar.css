@@ -1,0 +1,19 @@
+.hambur{
+    visibility: hidden;
+}
+
+
+@media screen and (max-width: 990px) {
+    .hambur{
+        visibility: visible;
+    }
+    .box{
+        display: none;
+    }
+}
+@media screen and (max-width: 620px) {
+    .search{
+        display: none;
+    }
+    
+}

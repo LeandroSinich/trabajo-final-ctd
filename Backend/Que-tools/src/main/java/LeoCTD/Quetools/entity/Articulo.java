@@ -16,17 +16,19 @@ public class Articulo {
     @Column(nullable = false)
     private String imagen;
     private Double costo;
-    @Column(nullable = false)
-    private Long categorias_idcategorias;
 
-    public Articulo(Long id, String nombre, String funcion, String descripcion, String imagen, Double costo, Long categorias_idcategorias) {
+    @ManyToOne
+    @JoinColumn(name="categoria_id")
+    private Categoria categoria;
+
+    public Articulo(Long id, String nombre, String funcion, String descripcion, String imagen, Double costo, Categoria categoria) {
         this.id = id;
         this.nombre = nombre;
         this.funcion = funcion;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.costo = costo;
-        this.categorias_idcategorias = categorias_idcategorias;
+        this.categoria =categoria;
     }
 
     public Articulo() {
@@ -80,12 +82,12 @@ public class Articulo {
         this.costo = costo;
     }
 
-    public Long getCategorias_idcategorias() {
-        return categorias_idcategorias;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCategorias_idcategorias(Long categorias_idcategorias) {
-        this.categorias_idcategorias = categorias_idcategorias;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     @Override
@@ -97,7 +99,7 @@ public class Articulo {
                 ", descripcion='" + descripcion + '\'' +
                 ", imagen='" + imagen + '\'' +
                 ", costo=" + costo +
-                ", categorias_idcategorias=" + categorias_idcategorias +
+                ", categoria=" + categoria +
                 '}';
     }
 }

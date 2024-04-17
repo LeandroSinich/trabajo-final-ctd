@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { Navbar } from './componentes/Navbar'
 import { HomePage } from './pages/HomePage'
 import { AndamiosPage } from './pages/AndamiosPage'
 import { CarritoPage } from './pages/CarritoPage'
@@ -18,6 +17,7 @@ import { LoginProvider } from './context/LoginProvider'
 import { ProductRegisterPage } from './pages/ProductRegisterPage'
 import { BlancoPage } from './pages/BlancoPage'
 import CuentaPage from './pages/CuentaPage'
+import Footer from './componentes/Footer'
 
 
 
@@ -27,15 +27,12 @@ function App() {
 
   return (
     <>
-    
-    {/* <ProductRegisterPage></ProductRegisterPage> */}
       <ArticulosProvider>
         <CarritoProvider>
           <BusquedaProvider>
             <LoginProvider>
               <AppBar></AppBar>
               <Routes>
-
                 <Route path='/' element={<HomePage />}></Route>
                 <Route path='/maquinas' element={<MaquinasPage />}></Route>
                 <Route path='/herramientas' element={<HerramientasPage />}></Route>
@@ -48,7 +45,9 @@ function App() {
                 <Route path='/*' element={<Navigate to='/' />}></Route>
                 <Route path='/blanco' element={<BlancoPage/>}></Route>
                 <Route path='/cuenta' element={<CuentaPage/>}></Route>
+                <Route path='/registro-producto' element={<ProductRegisterPage/>}></Route>
               </Routes>
+              <Footer></Footer>
             </LoginProvider>
           </BusquedaProvider>
         </CarritoProvider>

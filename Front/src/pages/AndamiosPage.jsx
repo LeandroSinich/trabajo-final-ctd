@@ -8,7 +8,7 @@ export const AndamiosPage = () => {
   const [andamios, setAndamios] = useState([])
 
   useEffect(() => {
-    setAndamios(artState.filter(art => art.categorias_idcategorias === 2))
+    setAndamios(artState.filter(art => art.categoria.id === 2))
   }, [])
 
 
