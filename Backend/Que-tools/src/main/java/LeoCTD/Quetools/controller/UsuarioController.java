@@ -3,6 +3,7 @@ package LeoCTD.Quetools.controller;
 import LeoCTD.Quetools.entity.Usuario;
 import LeoCTD.Quetools.service.IUsuarioService;
 import LeoCTD.Quetools.service.impl.UsuarioService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ public class UsuarioController {
 
     @Autowired
     private final UsuarioService iUsuarioService;
+    private final Logger LOGGER = Logger.getLogger(UsuarioController.class);
 
     public UsuarioController(UsuarioService iUsuarioService) {
         this.iUsuarioService = iUsuarioService;
@@ -24,23 +26,28 @@ public class UsuarioController {
 
     @GetMapping
     public List<Usuario> listarUsuarios(){
+        LOGGER.info("peticion: listar usuarios  ");
+
         return iUsuarioService.listar();
 
     }
 
     @GetMapping("/{id}")
     public Optional<Usuario> getUsuario(@PathVariable("id")Long id){
+        LOGGER.info("peticion para buscar usuario id: "+id);
         return iUsuarioService.buscar(id);
 
     }
     @PostMapping
     public void guardarUsuario(@RequestBody Usuario usuario){
+        LOGGER.info("peticion para guardar:  " + usuario);
         iUsuarioService.agregarOEditar(usuario);
 
     }
 
     @DeleteMapping("/{id}")
     public void borrarUsuario(@PathVariable("id") Long id){
+        LOGGER.info("peticion para borrar usuario id:  " + id);
         iUsuarioService.eliminar(id);
     }
 

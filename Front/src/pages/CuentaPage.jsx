@@ -19,6 +19,9 @@ import LogoutIcon from '@mui/icons-material/Logout';
 export default function CuentaPage() {
 
     const { login, reset } = React.useContext(LoginContext)
+    const handleReloadPage = () => {
+        window.location.reload()
+    }
 
     return (
         <div >
@@ -55,7 +58,7 @@ export default function CuentaPage() {
                             Tus alquileres
                         </ListItemButton>
                         
-                        <ListItemButton onClick={()=> reset()}>
+                        <ListItemButton onClick={handleReloadPage}>
                             <ListItemDecorator>
                                 <LogoutIcon />
                             </ListItemDecorator>
