@@ -1,8 +1,10 @@
 package LeoCTD.Quetools.service.impl;
 
+import LeoCTD.Quetools.dto.UsuarioSalidaDto;
 import LeoCTD.Quetools.entity.Usuario;
 import LeoCTD.Quetools.repository.IUsuarioRepository;
 import LeoCTD.Quetools.service.IUsuarioService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,12 @@ public class UsuarioService implements IUsuarioService<Usuario> {
 
     @Autowired
     IUsuarioRepository usuarioRepository;
+    private final ObjectMapper mapper;
     private final Logger LOGGER = Logger.getLogger(UsuarioService.class);
+
+    public UsuarioService(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
 
     @Override
     public List<Usuario> listar() {
@@ -38,8 +45,9 @@ public class UsuarioService implements IUsuarioService<Usuario> {
     }
 
     @Override
-    public Optional<Usuario> buscar(Long id){
+    public UsuarioSalidaDto buscar(Long id){
         LOGGER.info("buscando usuario id: " + id);
-        return usuarioRepository.findById(id);
+        UsuarioSalidaDto usuario = mapper.convertValue(usuarioRepository.findById(id).get(),UsuarioSalidaDto.class);
+        return usuario;
     }
 }

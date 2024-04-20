@@ -1,10 +1,13 @@
 package LeoCTD.Quetools.controller;
 
+import LeoCTD.Quetools.dto.ArtSalidaDto;
+import LeoCTD.Quetools.dto.UsuarioSalidaDto;
 import LeoCTD.Quetools.entity.Usuario;
 import LeoCTD.Quetools.service.IUsuarioService;
 import LeoCTD.Quetools.service.impl.UsuarioService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,9 +36,9 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Usuario> getUsuario(@PathVariable("id")Long id){
+    public ResponseEntity<UsuarioSalidaDto> getUsuario(@PathVariable("id")Long id){
         LOGGER.info("peticion para buscar usuario id: "+id);
-        return iUsuarioService.buscar(id);
+        return ResponseEntity.ok().body(iUsuarioService.buscar(id));
 
     }
     @PostMapping

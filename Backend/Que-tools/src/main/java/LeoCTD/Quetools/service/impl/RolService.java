@@ -3,6 +3,7 @@ package LeoCTD.Quetools.service.impl;
 import LeoCTD.Quetools.entity.Rol;
 import LeoCTD.Quetools.repository.ICategoriaRepository;
 import LeoCTD.Quetools.repository.IRolRepository;
+import LeoCTD.Quetools.service.IRolService;
 import LeoCTD.Quetools.service.IUsuarioService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class RolService implements IUsuarioService<Rol> {
+public class RolService implements IRolService<Rol> {
 
     @Autowired
     IRolRepository repository;
@@ -36,8 +37,8 @@ public class RolService implements IUsuarioService<Rol> {
     }
 
     @Override
-    public Optional<Rol> buscar(Long id) {
+    public Rol buscar(Long id) {
         LOGGER.info("buscando rol id: " + id);
-        return repository.findById(id);
+        return repository.findById(id).get();
     }
 }

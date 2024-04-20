@@ -1,10 +1,13 @@
 package LeoCTD.Quetools.controller;
 
+import LeoCTD.Quetools.dto.ArtEntradaDto;
+import LeoCTD.Quetools.dto.ArtSalidaDto;
 import LeoCTD.Quetools.entity.Articulo;
 
 import LeoCTD.Quetools.service.impl.ArticuloService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.List;
@@ -30,18 +33,19 @@ public class ArticuloController {
         return service.listar();
 
     }
-    @CrossOrigin(origins = "http://localhost:5173")
+
     @GetMapping("/{id}")
-    public Optional<Articulo> getArticulo(@PathVariable("id")Long id){
+    public ResponseEntity<ArtSalidaDto> getArticulo(@PathVariable("id")Long id){
         LOGGER.info("peticion para buscar articulo id: "+id);
-        return service.buscar(id);
+
+        return ResponseEntity.ok().body(service.buscar(id));
 
     }
     @PostMapping
-    public void guardarArticulo(@RequestBody Articulo articulo){
+    public ResponseEntity<ArtSalidaDto> guardarArticulo(@RequestBody ArtEntradaDto articulo){
         LOGGER.info("Me llego:  " + articulo);
-        service.agregarOEditar(articulo);
 
+        return ResponseEntity.ok().body(service.agregarOEditar(articulo));
     }
 
     //@DeleteMapping("/{id}")

@@ -31,7 +31,7 @@ public class RolController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Rol> getRol(@PathVariable("id")Long id){
+    public Rol getRol(@PathVariable("id")Long id){
         LOGGER.info("peticion para buscar rol id: "+id);
         return service.buscar(id);
 

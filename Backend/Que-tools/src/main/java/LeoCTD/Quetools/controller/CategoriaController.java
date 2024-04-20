@@ -33,7 +33,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Categoria> getCategoria(@PathVariable("id")Long id){
+    public Categoria getCategoria(@PathVariable("id")Long id){
         LOGGER.info("peticion para buscar categoria id: "+id);
         return service.buscar(id);
 

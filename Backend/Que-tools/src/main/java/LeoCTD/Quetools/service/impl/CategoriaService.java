@@ -3,6 +3,7 @@ package LeoCTD.Quetools.service.impl;
 import LeoCTD.Quetools.entity.Categoria;
 
 import LeoCTD.Quetools.repository.ICategoriaRepository;
+import LeoCTD.Quetools.service.ICategoriaService;
 import LeoCTD.Quetools.service.IUsuarioService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoriaService implements IUsuarioService<Categoria> {
+public class CategoriaService implements ICategoriaService<Categoria> {
 
     @Autowired
     ICategoriaRepository repository;
@@ -37,8 +38,8 @@ public class CategoriaService implements IUsuarioService<Categoria> {
     }
 
     @Override
-    public Optional<Categoria> buscar(Long id) {
+    public Categoria buscar(Long id) {
         LOGGER.info("buscando categoria id: " + id);
-        return repository.findById(id);
+        return repository.findById(id).get();
     }
 }

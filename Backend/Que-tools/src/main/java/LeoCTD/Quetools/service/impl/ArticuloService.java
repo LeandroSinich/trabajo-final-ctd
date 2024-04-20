@@ -1,9 +1,13 @@
 package LeoCTD.Quetools.service.impl;
 
+import LeoCTD.Quetools.dto.ArtEntradaDto;
+import LeoCTD.Quetools.dto.ArtSalidaDto;
 import LeoCTD.Quetools.entity.Articulo;
 import LeoCTD.Quetools.repository.IArticuloRepository;
-import LeoCTD.Quetools.repository.IUsuarioRepository;
-import LeoCTD.Quetools.service.IUsuarioService;
+
+import LeoCTD.Quetools.service.IArticuloService;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,11 +16,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ArticuloService implements IUsuarioService<Articulo> {
+public class ArticuloService implements IArticuloService<Articulo> {
 
     @Autowired
     IArticuloRepository repository;
+    private final ObjectMapper mapper;
+
     private final Logger LOGGER = Logger.getLogger(ArticuloService.class);
+    @Autowired
+    public ArticuloService(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
+
     @Override
     public List<Articulo> listar() {
         LOGGER.info("buscando todos los articulos ");
@@ -24,20 +35,32 @@ public class ArticuloService implements IUsuarioService<Articulo> {
     }
 
     @Override
-    public void agregarOEditar(Articulo articulo) {
+    public ArtSalidaDto agregarOEditar(ArtEntradaDto articulo) {
+        Articulo art = mapper.convertValue(articulo, Articulo.class);
         LOGGER.info("agregando articulo: " + articulo);
-        repository.save(articulo);
+        repository.save(art);
+
+        return mapper.convertValue(art, ArtSalidaDto.class);
     }
 
     @Override
     public void eliminar(Long id) {
-        LOGGER.info("eliminando articulo id: " + id);
-        repository.deleteById(id);
+        Optional<Articulo> articulo = repository.findById(id);
+        //if(articulo !== null){
+            LOGGER.info("eliminando articulo id: " + id);
+            repository.deleteById(id);
+       // }else{
+       //     LOGGER.info("el articulo no existe");
+      //  }
+
     }
 
     @Override
-    public Optional<Articulo> buscar(Long id) {
+    public ArtSalidaDto buscar(Long id) {
         LOGGER.info("buscando articulo id: " + id);
-        return repository.findById(id);
+        Articulo vuelta = repository.findById(id).get();
+        System.out.println(vuelta);
+        return mapper.convertValue(vuelta, ArtSalidaDto.class);
+
     }
 }
