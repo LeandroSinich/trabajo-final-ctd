@@ -44,7 +44,7 @@ const handleAlquilar = ()=>{
             <tr key={item.id}>
               <td >{item.nombre}</td>
               <td>{item.costo}</td>
-              <td></td>
+              
               <td>
                 <button
                   className='btn btn-ouline-primary'
