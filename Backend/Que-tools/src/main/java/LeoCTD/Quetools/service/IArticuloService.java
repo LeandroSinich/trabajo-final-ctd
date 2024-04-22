@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IArticuloService<Articulo> {
     List<Articulo> listar();
-    ArtSalidaDto agregarOEditar(ArtEntradaDto articulo);
+    ArtSalidaDto agregarOEditar(Articulo articulo);
 
     void eliminar(Long id);
 

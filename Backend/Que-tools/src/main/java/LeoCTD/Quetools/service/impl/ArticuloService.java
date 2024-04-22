@@ -35,10 +35,10 @@ public class ArticuloService implements IArticuloService<Articulo> {
     }
 
     @Override
-    public ArtSalidaDto agregarOEditar(ArtEntradaDto articulo) {
-        Articulo art = mapper.convertValue(articulo, Articulo.class);
+    public ArtSalidaDto agregarOEditar(Articulo articulo) {
+
         LOGGER.info("agregando articulo: " + articulo);
-        repository.save(art);
+        Articulo art = repository.save(articulo);
 
         return mapper.convertValue(art, ArtSalidaDto.class);
     }

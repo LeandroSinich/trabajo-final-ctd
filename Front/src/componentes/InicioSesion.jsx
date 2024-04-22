@@ -41,14 +41,14 @@ export default function InicioSesion() {
             iniciarSesion(user)
 
         } else {
-            alert('Email y/o contraseña enválido/s')
+            alert('Email y/o contraseña inválido/s')
         }
     }
 
     useEffect(() => {
         getUsers()
     }, [])
-    
+
     useEffect(() => {
         if(login.login == false && login.nombre !== 'OFF-LINE'){
             setOpen(true)            

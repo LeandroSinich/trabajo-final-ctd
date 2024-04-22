@@ -7,7 +7,7 @@
     .hambur{
         visibility: visible;
     }
-    .box{
+    #box{
         display: none;
     }
 }

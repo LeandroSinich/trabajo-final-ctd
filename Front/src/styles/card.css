@@ -6,15 +6,15 @@
     border-radius: 10px;
     padding: 10px;
     margin: 10px;    
-    width: 350px;
-    height: 190px;
+    max-width: 350px;
+    max-height: 220px;
     background-color: rgb(247, 243, 231);
     color: rgb(24, 24, 24);
     
   }
   
   .tarjeta-imagen {
-    width: 100px;
+    max-width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 4px;
@@ -27,7 +27,7 @@
   
   .tarjeta-titulo {
     box-sizing: border-box;
-    font-size: 130%;
+    font-size: clamp(18px, 4vw,24px);
     margin: 0;
     margin-bottom: 20px;
   }
@@ -40,7 +40,7 @@
     overflow: hidden;
     margin: 0;
     margin-bottom: 20px;
-    
+    font-size: clamp(8px, 4vw,16px);
     height: 20%;
   }
   

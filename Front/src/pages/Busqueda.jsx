@@ -4,6 +4,7 @@ import { ArticulosContext } from '../context/ArticulosContext'
 import { Card } from '../componentes/Card'
 import { createContext } from 'react'
 import { BusquedaContext } from '../context/BusquedaContext'
+import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 
 export const Busqueda = () => {
     const {storedValue}=useLocalStorage('busqueda','')
@@ -19,13 +20,14 @@ export const Busqueda = () => {
     
   return (
     <>
-    <h3>Se encontró {resultado.length} resultado/s para tu búsqueda:</h3>
+    <h3 style={{margin: '20px', textAlign:'center'}}>Se encontró {resultado.length} resultado/s para tu búsqueda:</h3>
     <div className='container'>
       {resultado && resultado.map(art => (
         <Card key={art.id}
           articulo={art}
         ></Card>
-      ))}
+      ))
+    }
     </div>
     </>
   )

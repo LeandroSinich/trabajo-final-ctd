@@ -27,7 +27,7 @@ export const HomePage = () => {
 
   return (
     <>
-    <h2>Algunos de nuestros articulos:</h2>
+    <h2 style={{margin: '20px', textAlign:'center'}}>Algunos de nuestros articulos</h2>
     <div className='container'>
       <InicioSesion/>
       

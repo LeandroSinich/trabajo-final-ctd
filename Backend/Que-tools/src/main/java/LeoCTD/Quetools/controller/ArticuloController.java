@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "https://q-tools.netlify.app"})
 @RequestMapping(path="/articulos")
 
 public class ArticuloController {
@@ -42,7 +42,7 @@ public class ArticuloController {
 
     }
     @PostMapping
-    public ResponseEntity<ArtSalidaDto> guardarArticulo(@RequestBody ArtEntradaDto articulo){
+    public ResponseEntity<ArtSalidaDto> guardarArticulo(@RequestBody Articulo articulo){
         LOGGER.info("Me llego:  " + articulo);
 
         return ResponseEntity.ok().body(service.agregarOEditar(articulo));

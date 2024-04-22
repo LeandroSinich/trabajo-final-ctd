@@ -3,23 +3,27 @@ import List from '@mui/joy/List';
 import ListItemDecorator from '@mui/joy/ListItemDecorator';
 import ListItemButton from '@mui/joy/ListItemButton';
 import AddCardIcon from '@mui/icons-material/AddCard';
-import Image from '@mui/icons-material/Image';
+
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
+
 import AddHomeIcon from '@mui/icons-material/AddHome';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 import ArtTrackIcon from '@mui/icons-material/ArtTrack';
 import { LoginContext } from '../context/LoginContext';
-import { Button } from '@mui/material';
+
 import InicioSesion from '../componentes/InicioSesion';
 import { NavLink } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useNavigate } from 'react-router-dom'
 
 export default function CuentaPage() {
 
     const { login, reset } = React.useContext(LoginContext)
+    const navigate = useNavigate()
+
     const handleReloadPage = () => {
+        navigate('/')
         window.location.reload()
     }
 

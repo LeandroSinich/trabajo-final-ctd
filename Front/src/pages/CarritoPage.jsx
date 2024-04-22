@@ -4,12 +4,14 @@ import { LoginContext } from '../context/LoginContext'
 import { useNavigate } from 'react-router-dom'
 import DatePicker from '../componentes/DatePicker'
 import { Margin } from '@mui/icons-material'
+import { useState } from 'react'
 
 
 export const CarritoPage = () => {
 
   const { carritoLista, aumentarCantidad, disminuirCantidad, eliminarArticulo } = useContext(CarritoContext)
   const {login} = useContext(LoginContext)
+  const [date, setDate] = useState(false)
   
   const navigate = useNavigate()
   const calcularTotal = () => {
@@ -32,8 +34,7 @@ const handleAlquilar = ()=>{
         <thead>
           <tr>
             <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Fecha inicio</th>
+            <th scope="col">Precio</th>            
             <th scope="col">Cant. dias</th>
             <th scope="col">Eliminar</th>
           </tr>
@@ -76,13 +77,19 @@ const handleAlquilar = ()=>{
         </tbody>
       </table>
       <hr></hr>
-      <DatePicker></DatePicker>
+      <form>
+          <input 
+          type="datetime-local"
+          style={{margin:'10px', padding:'5px', borderRadius:'5px'}}
+          onChange={()=>setDate(true)}
+          />
+      </form>
       
       <button 
       className='btn btn-primary'
       type='button'
       onClick={handleAlquilar}
-      disabled={carritoLista<1}
+      disabled={carritoLista<1 || date==false}
       >Alquilar</button>
     </div>
   )
